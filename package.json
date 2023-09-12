@@ -25,7 +25,8 @@
     "isbot": "^3.6.8",
     "nodemailer": "^6.9.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.19.3",
