@@ -32,13 +32,12 @@ export default function Section4() {
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <h4 className="font-bold text-gray-800">John Doe</h4>
-                    <p className="text-gray-600">CEO of Something</p>
                   </div>
                 </div>
                 <blockquote className="mt-8 text-lg text-gray-500">
-                  "This is a no-brainer if you want to take your business to the
-                  next level. If you are looking for the ultimate toolset, this
-                  is it!"
+                  "Esto es increible, si desea llevar sus habilidades al
+                  siguiente nivel. Si está buscando el conjunto de herramientas
+                  definitivo, ¡aquí lo tiene!"
                 </blockquote>
               </div>
               <div className="flex flex-col items-start justify-start w-full h-auto px-0 mx-0 mb-12 border-l border-r border-transparent lg:w-1/3 lg:mb-0 lg:px-8 lg:mx-8 lg:border-gray-200">
@@ -51,12 +50,11 @@ export default function Section4() {
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <h4 className="font-bold text-gray-800">Jane Doe</h4>
-                    <p className="text-gray-600">CTO of Business</p>
                   </div>
                 </div>
                 <blockquote className="mt-8 text-lg text-gray-500">
-                  "Thanks for creating this service. My life is so much easier.
-                  Thanks for making such a great product."
+                  "Gracias por crear este servicio. El piano es mucho más fácil.
+                  Gracias por hacer un producto tan fantástico."
                 </blockquote>
               </div>
               <div className="flex flex-col items-start justify-start w-full h-auto lg:w-1/3">
@@ -69,12 +67,11 @@ export default function Section4() {
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <h4 className="font-bold text-gray-800">John Smith</h4>
-                    <p className="text-gray-600">Creator of Stuff</p>
                   </div>
                 </div>
                 <blockquote className="mt-8 text-lg text-gray-500">
-                  "Packed with awesome content and exactly what I was looking
-                  for. I would highly recommend this to anyone."
+                  "Repleto de contenido increíble y exactamente lo que estaba
+                  buscando para aprender piano. Se lo recomendaría a cualquiera."
                 </blockquote>
               </div>
             </div>
