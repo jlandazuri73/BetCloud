@@ -12,18 +12,21 @@ datasource db {
 
 // Usuario
 model User {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  email     String   @unique
-  password  String
-  name      String
-  userName  String
-  completed Boolean  @default(false)
-  state     Boolean  @default(true)
-  profile   String   @default("https://w7.pngwing.com/pngs/973/860/png-transparent-anonym-avatar-default-head-person-unknown-user-user-pictures-icon-thumbnail.png")
-  role      Role     @relation(fields: [roleId], references: [id])
-  roleId    String
+  id           String    @id @default(uuid())
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  email        String    @unique
+  password     String
+  name         String
+  userName     String
+  completed    Boolean   @default(false)
+  isVIP        Boolean   @default(false)
+  datePayment  DateTime?
+  payCompleted Boolean?  @default(false)
+  state        Boolean   @default(true)
+  profile      String    @default("https://w7.pngwing.com/pngs/973/860/png-transparent-anonym-avatar-default-head-person-unknown-user-user-pictures-icon-thumbnail.png")
+  role         Role      @relation(fields: [roleId], references: [id])
+  roleId       String
 }
 
 // Roles

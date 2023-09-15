@@ -9,6 +9,11 @@ function isValidPassword(password) {
   return password && password?.length >= 6;
 }
 
+// Validar PLAN
+function isValidPlan(plan) {
+  return plan == "FREE" || plan == "VIP";
+}
+
 // Validar nombre
 function isValidName(name) {
   let sms = "";
@@ -41,6 +46,10 @@ export function validateRegister(input) {
   if (!isValidPassword(input?.password)) {
     validationErrors.password =
       "La contraseña debe tener al menos 6 caracteres";
+  }
+  if (!isValidPlan(input?.plan)) {
+    validationErrors.plan =
+      "El plan no es valido";
   }
   if (!successName?.ok) {
     validationErrors.name = successName?.sms;

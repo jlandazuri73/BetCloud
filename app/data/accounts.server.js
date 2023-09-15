@@ -116,7 +116,7 @@ export async function signup({
   await addToQueue("EMAIL", { email, type: "WELCOME" });
   await consumeFromQueue("EMAIL");
   // Retornando la funcion que crea la sesion
-  return createUserSession(newUser?.id, "/app/");
+  return createUserSession(newUser?.id, "/");
 }
 
 // Destruyendo session - Logout
@@ -155,7 +155,7 @@ export async function login({ userName, password }) {
     error.status = 422;
     throw error;
   }
-  const redirectPath = "/app/";
+  const redirectPath = "/";
   // Logueando al usuario
   return createUserSession(existingUser?.id, redirectPath);
 }

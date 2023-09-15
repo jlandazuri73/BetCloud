@@ -11,7 +11,6 @@ export async function action({ request }) {
   const formData = Object.fromEntries(await request.formData());
 
   if (request.method === "POST") {
-    console.log(formData, "#");
     // Validaciones
     try {
       validateRegister(formData);
@@ -21,8 +20,6 @@ export async function action({ request }) {
 
 
 
-
-    /*
     // Creando cuenta
     try {
       return await signup(formData);
@@ -31,7 +28,6 @@ export async function action({ request }) {
         return { message: error.message };
       }
     }
-    */
   }
 
   return null;

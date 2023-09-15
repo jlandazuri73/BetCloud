@@ -1,0 +1,11 @@
+Cuando se registre como VIP:
+Poner el estado si es vip en true
+y no dejarlo hacer nada en la app hasta que verifique el pago 
+o acepte estar como un usuario normal(free)
+
+
+
+Cuando llegue a la ruta login con el parametro en la URL de plan = VIP
+si esta logueado mandarlo a la pasarel de pago y alla 
+hacer las verificaciones para luego pasarlo a VIP
+De lo contrario selecciona el plan VIP con defecto en el select
