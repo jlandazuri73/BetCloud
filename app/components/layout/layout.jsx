@@ -138,7 +138,7 @@ export default function Layout({ children }) {
                                             VERSION VIP
                                           </span>
                                           {isVIP ? (
-                                            <i class="fa-solid fa-lock-open"></i>
+                                            <i className="fa-solid fa-lock-open"></i>
                                           ) : (
                                             <>
                                               <svg
