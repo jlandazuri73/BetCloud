@@ -5,7 +5,7 @@ o acepte estar como un usuario normal(free)
 
 
 
-Cuando llegue a la ruta login con el parametro en la URL de plan = VIP
+Cuando llegue a la ruta register con el parametro en la URL de plan = VIP
 si esta logueado mandarlo a la pasarel de pago y alla 
 hacer las verificaciones para luego pasarlo a VIP
 De lo contrario selecciona el plan VIP con defecto en el select

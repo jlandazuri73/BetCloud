@@ -80,6 +80,7 @@ export async function signup({
   email,
   password,
   name,
+  plan
 }) {
   // Buscando si existe una cuenta con el email proporcionado
   const existingUserEmail = await prisma.user.findFirst({ where: { email } });
@@ -108,6 +109,7 @@ export async function signup({
     name,
     userName: newUserName,
     roleId: role,
+    isVIP: Boolean(plan === "VIP")
   };
   const newUser = await prisma.user.create({
     data: newDataUser,

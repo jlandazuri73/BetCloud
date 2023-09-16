@@ -1,3 +1,5 @@
+import { calculateDaysDifference } from "../../utils/date";
+
 // Validar email
 export function isValidEmail(email) {
   var patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -90,4 +92,19 @@ export function validateProfile(input) {
   if (Object.keys(validationErrors).length > 0) {
     throw validationErrors;
   }
+}
+
+// Validar si esta apto para ser VIP
+export function isValidVIP(user) {
+  let response = { ok: true, sms: "" };
+  if (user?.isVIP) {
+    // Se registró como VIP pero no ha pagado
+    if (!user?.payCompleted) response = { ok: false, sms: "PAY" };
+    // Es VIP pero ya se venció el mes de la suscripción
+    if (user?.payCompleted) {
+      const days = calculateDaysDifference(user?.datePayment) || null;
+      if (days > 30) response = { ok: false, sms: "EXPIRED" }
+    }
+  }
+  return response;
 }
