@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { NAME_APP } from "../../utils/info";
-import { Form, useLoaderData, useSearchParams } from "@remix-run/react";
+import { NAME_APP, URL_PAY } from "../../utils/info";
+import { Form, Link, useLoaderData, useSearchParams } from "@remix-run/react";
 
 export default function PayRequired() {
   const [sms, setsms] = useState("");
@@ -30,16 +30,16 @@ export default function PayRequired() {
         <h1 className="text-3xl font-bold text-center p-3 pb-0">
           {NAME_APP?.toUpperCase()}
         </h1>
-        <Form method="post" className="text-center ">
+        <Form method="post" className="text-center">
           <p
             style={{ margin: "0 auto" }}
             className="text-center md:w-2/4 pb-2 text-lg"
           >
-            {sms}
+            {sms} {" "}
             Si quieres seguir con usuario gratis haz
-            <button className="text-blue-500 mx-2 bg-transparent cursor-pointer">
-              Clic aquí
-            </button>
+          <button className="text-blue-500 mx-2 bg-transparent cursor-pointer">
+            Clic aquí
+          </button>
           </p>
         </Form>
         <hr className="py-3" />
@@ -80,9 +80,11 @@ export default function PayRequired() {
                 </div>
                 <div className="flex items-center px-8 mt-8"></div>
                 <div className="flex flex-col px-8 pt-4">
+                  <Link to={URL_PAY}>
                   <button className="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">
                     Continuar
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

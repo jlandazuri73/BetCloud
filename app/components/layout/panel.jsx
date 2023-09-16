@@ -1,5 +1,9 @@
 import { Form, Link, useLoaderData } from "@remix-run/react";
-import { NAME_APP, URL_GROUP_WHATSAPP_FREE, URL_GROUP_WHATSAPP_VIP } from "../../utils/info";
+import {
+  NAME_APP,
+  URL_GROUP_WHATSAPP_FREE,
+  URL_GROUP_WHATSAPP_VIP,
+} from "../../utils/info";
 
 export default function Panel({ showPanel }) {
   const { userIsLogin, user } = useLoaderData();
@@ -52,7 +56,37 @@ export default function Panel({ showPanel }) {
                             >
                               <a className="flex py-3 px-3 item_panel items-center gap-3 relative rounded-md  cursor-pointer break-all bg-gray-50 hover:pr-4 dark:bg-gray-900 group">
                                 <div className="flex-1 text-ellipsis max-h-5 overflow-hidden break-all relative">
-                                  Pronosticos para hoy
+                                  ¿Como apostar?
+                                </div>
+                              </a>
+                            </li>
+                            <li
+                              className="relative z-[15]"
+                              style={{ opacity: "1", height: "auto" }}
+                            >
+                              <a className="flex py-3 px-3 item_panel items-center gap-3 relative rounded-md  cursor-pointer break-all bg-gray-50 hover:pr-4 dark:bg-gray-900 group">
+                                <div className="flex-1 text-ellipsis max-h-5 overflow-hidden break-all relative">
+                                  Nuestras recomendaciones
+                                </div>
+                              </a>
+                            </li>
+                            <li
+                              className="relative z-[15]"
+                              style={{ opacity: "1", height: "auto" }}
+                            >
+                              <a className="flex py-3 px-3 item_panel items-center gap-3 relative rounded-md  cursor-pointer break-all bg-gray-50 hover:pr-4 dark:bg-gray-900 group">
+                                <div className="flex-1 text-ellipsis max-h-5 overflow-hidden break-all relative">
+                                  Mercados más efectivos
+                                </div>
+                              </a>
+                            </li>
+                            <li
+                              className="relative z-[15]"
+                              style={{ opacity: "1", height: "auto" }}
+                            >
+                              <a className="flex py-3 px-3 item_panel items-center gap-3 relative rounded-md  cursor-pointer break-all bg-gray-50 hover:pr-4 dark:bg-gray-900 group">
+                                <div className="flex-1 text-ellipsis max-h-5 overflow-hidden break-all relative">
+                                  Mejores casas de apuestas
                                 </div>
                               </a>
                             </li>
@@ -84,7 +118,9 @@ export default function Panel({ showPanel }) {
                     </div>
                   )}
                   <Link
-                    to={isVIP ? URL_GROUP_WHATSAPP_VIP : URL_GROUP_WHATSAPP_FREE}
+                    to={
+                      isVIP ? URL_GROUP_WHATSAPP_VIP : URL_GROUP_WHATSAPP_FREE
+                    }
                     target="_blank"
                     id="btn_go_wp"
                     className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 dark:text-white cursor-pointer text-sm hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"

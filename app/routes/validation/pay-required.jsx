@@ -2,9 +2,21 @@ import { redirect } from "@remix-run/node";
 import PayRequired from "../../components/validation/pay-required";
 import { getUserFromSession } from "../../data/accounts.server";
 import { getUser, updateUserisVIP } from "../../data/user.server";
+import { useNavigation } from "@remix-run/react";
+import Preload from "../../components/shared/preload";
 
 export default function PayRequiredPage() {
-  return <PayRequired />;
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state !== "idle";
+  return (
+    <>
+      {isSubmitting ? (
+        <Preload />
+      ) : (
+        <PayRequired />
+      )}
+    </>
+  );
 }
 
 export async function loader({ request }) {

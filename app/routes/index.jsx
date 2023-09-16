@@ -5,16 +5,33 @@ import { getUserFromSession, isLogin } from "../data/accounts.server";
 import { getUser } from "../data/user.server";
 import { isValidVIP } from "../data/validation/accounts";
 import styles from "../styles/app.css";
+import { useNavigation } from "@remix-run/react";
+import Preload from "../components/shared/preload";
+import ErrorComponent from "../components/shared/error";
 
 export default function Index() {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state !== "idle";
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <>
+      {isSubmitting ? (
+        <Preload />
+      ) : (
+        <Layout>
+          <Home />
+        </Layout>
+      )}
+    </>
   );
 }
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
+
+export function ErrorBoundary() {
+  //const error = useRouteError();
+
+  return <ErrorComponent />;
+}
 
 export async function loader({ request }) {
   const userIsLogin = await isLogin(request);

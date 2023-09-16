@@ -31,3 +31,19 @@ export async function updateUserisVIP(isVIP, userId) {
         console.log("Error en la funcion updateUserisVIP, error: " + error);
     }
 }
+
+// Activar cuenta VIP
+export async function activateVIP(userId) {
+    try {
+        return await prisma.user.update({
+            where: { id: userId },
+            data: {
+                isVIP: Boolean(true),
+                payCompleted: Boolean(true),
+                datePayment: new Date(),
+            }
+        });
+    } catch (error) {
+        console.log("Error en la funcion activateVIP, error: " + error);
+    }
+}

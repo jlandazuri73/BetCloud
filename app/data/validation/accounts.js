@@ -102,7 +102,7 @@ export function isValidVIP(user) {
     if (!user?.payCompleted) response = { ok: false, sms: "PAY" };
     // Es VIP pero ya se venció el mes de la suscripción
     if (user?.payCompleted) {
-      const days = calculateDaysDifference(user?.datePayment) || null;
+      const days = calculateDaysDifference(user?.datePayment?.toISOString()?.toString()?.substring(0, 10)) || null;
       if (days > 30) response = { ok: false, sms: "EXPIRED" }
     }
   }

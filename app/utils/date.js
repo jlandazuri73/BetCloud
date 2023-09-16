@@ -7,7 +7,7 @@ export function getYearCurrent() {
 
 
 // Diferencia en dias a partir de una fecha pasada
-export function calculateDaysDifference(pastDate) {
+export function calculateDaysDifference(pastDate = "") {
     if (!pastDate || pastDate?.trim()?.length == 0) return null;
     // Convert the past date into a Date object
     const pastDateObject = new Date(pastDate);

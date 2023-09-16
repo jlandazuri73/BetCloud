@@ -7,9 +7,11 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from "./tailwind.css";
+import stylesGlobal from "./styles/global.css";
 
 export const links = () => [
   { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: stylesGlobal },
   // Google fonts
   {
     rel: "stylesheet",
@@ -29,7 +31,7 @@ export const links = () => [
 
 export const meta = () => ({
   charset: "utf-8",
-  title: "APP",
+  title: "BetCloud",
   viewport: "width=device-width,initial-scale=1",
 });
 
