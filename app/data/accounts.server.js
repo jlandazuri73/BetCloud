@@ -135,7 +135,7 @@ export async function destroyUserSession(request, redirection = "/") {
 }
 
 // Inicio de sesion del usuario
-export async function login({ userName, password }) {
+export async function login({ userName, password, redirectPath }) {
   // Buscando si existe cuenta por medio del nombre de usuario
   const existingUserName = await prisma.user.findFirst({ where: { userName } });
   const existingUserEmail = await prisma.user.findFirst({
@@ -157,7 +157,6 @@ export async function login({ userName, password }) {
     error.status = 422;
     throw error;
   }
-  const redirectPath = "/";
   // Logueando al usuario
   return createUserSession(existingUser?.id, redirectPath);
 }
@@ -211,4 +210,28 @@ export async function isLogin(request) {
     isLogin = false;
   }
   return isLogin;
+}
+
+// Seguridad - Validando que el usuario sea ADMIN
+export async function requireAdminSession(request) {
+  const userId = await getUserFromSession(request);
+  // Si no existe ningun ID en localStorage
+  if (!userId) {
+    throw redirect("/accounts/login/?type=admin");
+  }
+  const existingUser = await prisma.user.findFirst({
+    where: { id: userId },
+    include: { role: true }
+  });
+  // Si el ID no esta en la base de datos
+  if (!existingUser) {
+    throw redirect("/accounts/login/?type=admin");
+  }
+
+  // Si no es ADMIN
+  if(existingUser?.role?.name !== "ADMIN"){
+    throw redirect("/");
+  }
+
+  return userId;
 }

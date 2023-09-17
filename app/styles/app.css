@@ -10443,6 +10443,11 @@ div p:nth-of-type(2) {
 .pronostico{
     background-color:  #0f1b2d;
 }
+.pronostico:hover{
+    transition: 250ms;
+    box-shadow: 0px 10px 15px -3px #0483f365;
+}
+
 .header-pronostico {
     background-color: #2e3b56;
     height: 30px;

@@ -1,29 +1,29 @@
 export default function ErrorComponent() {
   return (
     <>
-      <div class="" id="body">
+      <div className="" id="body">
         <main id="main">
-          <header class="Menubar">
+          <header className="Menubar">
             <div>
               <p>Terminal</p>
             </div>
             <div>
-              <p class="title_404">500</p>
+              <p className="title_404">500</p>
             </div>
-            <div class="Menu_BTN">
+            <div className="Menu_BTN">
               <a href="#" id="min"></a>
               <a href="#" id="max"></a>
               <a href="#" id="close"></a>
             </div>
           </header>
-          <div class="Terminal_body" id="Terminal">
+          <div className="Terminal_body" id="Terminal">
             <p>Oops! tuvimos un pequeño error al cargar el contenido</p>
             <br />
             <br />
             <strong>
               Haz{" "}
               <span
-                class="cursor-pointer text-blue-300"
+                className="cursor-pointer text-blue-300"
                 onClick={() => {
                   window.location.reload();
                 }}
@@ -33,19 +33,19 @@ export default function ErrorComponent() {
               para reintentarlo
             </strong>
             <br />
-            <div class="Terminal_code">
-              <div class="Terminal_line">
-                <div class="code" id="code"></div>
-                <span class="arrow">→</span>
-                <span class="user-input" id="userInput"></span>
+            <div className="Terminal_code">
+              <div className="Terminal_line">
+                <div className="code" id="code"></div>
+                <span className="arrow">→</span>
+                <span className="user-input" id="userInput"></span>
                 <label for="Keyboard"></label>
-                <input type="text" id="Keyboard" class="keyboard" />
+                <input type="text" id="Keyboard" className="keyboard" />
               </div>
             </div>
           </div>
         </main>
 
-        <div class="min_app" id="min_app">
+        <div className="min_app" id="min_app">
           <a href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"

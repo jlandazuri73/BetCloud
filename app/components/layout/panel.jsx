@@ -8,6 +8,7 @@ import {
 export default function Panel({ showPanel }) {
   const { userIsLogin, user } = useLoaderData();
   const isVIP = user?.isVIP;
+  const isAdmin = user?.role?.name === "ADMIN";
 
   return (
     <>
@@ -117,6 +118,24 @@ export default function Panel({ showPanel }) {
                       </span>
                     </div>
                   )}
+
+                  {isAdmin && (
+                    <Link
+                      to={"/admin/"}
+                      className="flex px-3 min-h-[44px] py-1 items-center gap-3 transition-colors duration-200 dark:text-white cursor-pointer text-sm hover:bg-blue-800 rounded-md"
+                    >
+                      <span className="flex w-full flex-row flex-wrap-reverse justify-between">
+                        <span className="gold-new-button flex items-center gap-3">
+                          <i
+                            className="fa-solid fa-shield-halved"
+                            style={{ fontSize: "20px" }}
+                          ></i>
+                          Administración
+                        </span>
+                      </span>
+                    </Link>
+                  )}
+
                   <Link
                     to={
                       isVIP ? URL_GROUP_WHATSAPP_VIP : URL_GROUP_WHATSAPP_FREE

@@ -5,13 +5,15 @@ import { validateLogin } from "../../data/validation/accounts";
 import styles from "../../styles/accounts/login.css";
 
 export default function LoginPage() {
-    return <LoginForm />;
+  return <LoginForm />;
 }
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export async function action({ request }) {
   const formData = Object.fromEntries(await request.formData());
+  const searchParams = new URL(request.url).searchParams;
+  const typeURL = searchParams.get("type");
 
   if (request.method === "POST") {
     // Validaciones
@@ -21,10 +23,12 @@ export async function action({ request }) {
       return error;
     }
 
+    const redirectPath = typeURL == "admin" ? "/admin/" : "/";
+    let credentials = { ...formData, redirectPath };
 
     // Iniciando sesion
     try {
-      return await login(formData);
+      return await login(credentials);
     } catch (error) {
       if (error.status === 422) {
         return { message: error.message };
@@ -35,16 +39,10 @@ export async function action({ request }) {
   return null;
 }
 
-
-
-
-
-
 export async function loader({ request }) {
-    const userIsLogin = await isLogin(request);
-    if (userIsLogin) {
-      return redirect("/");
-    }
-    return null;
+  const userIsLogin = await isLogin(request);
+  if (userIsLogin) {
+    return redirect("/");
   }
-  
+  return null;
+}
