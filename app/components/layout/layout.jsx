@@ -187,7 +187,7 @@ export default function Layout({ children }) {
                             </div>
                             <div
                               style={{ color: "whitesmoke", fontSize: "18px" }}
-                              className="p-4 h-96 w-full overflow-y-scroll"
+                              className="p-4 pb-7 h-96 w-full overflow-y-scroll"
                             >
                               {children}
                             </div>

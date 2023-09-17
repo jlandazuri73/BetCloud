@@ -10323,6 +10323,34 @@ div p:nth-of-type(2) {
     z-index: 9999999999999999999999999999999999999999999999999999999999999;
 }
 
+.item_prediction_open{
+    position: inherit;
+}
+.item_prediction_close{
+    position: inherit;
+    height: 100px;
+    background-color: rgb(9, 28, 58);
+    border-radius: 10px;
+}
+.item_prediction_close .headerModalApp{
+    border-bottom: none;
+    height: 100px !important;
+    max-height: 100% !important;
+}
+@media(max-width: 768px){
+    .item_prediction_close{
+        width: 100%;
+    }
+    .d-vs{
+        width: 30%;
+        left: 35%;
+    }
+    .title-vs{
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
 @keyframes modalFadeIn {
     from {
         opacity: 0;
@@ -10409,3 +10437,23 @@ div p:nth-of-type(2) {
 }
 
 
+
+
+
+.pronostico{
+    background-color:  #0f1b2d;
+}
+.header-pronostico {
+    background-color: #2e3b56;
+    height: 30px;
+    width: 100%;
+}
+.header-pronostico img{
+    max-width: 85%;
+    max-height: 85%;
+}
+.body-pronostico{
+    height: 66px;
+    width: 100%;
+    background-color: #4d5573;
+}
