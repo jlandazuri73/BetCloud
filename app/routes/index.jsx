@@ -7,6 +7,7 @@ import { isValidVIP } from "../data/validation/accounts";
 import styles from "../styles/app.css";
 import { useNavigation } from "@remix-run/react";
 import Preload from "../components/shared/preload";
+import { getPredictions } from "../data/predictions.server";
 
 export default function Index() {
   const navigation = useNavigation();
@@ -26,7 +27,6 @@ export default function Index() {
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
-
 export async function loader({ request }) {
   const userIsLogin = await isLogin(request);
   const userId = await getUserFromSession(request);
@@ -38,7 +38,8 @@ export async function loader({ request }) {
       return redirect(`/validation/pay-required?type=${validVIP?.sms}`);
     }
   }
+  let limit = userId ? 6 : 3;
+  let predictions = await getPredictions(limit, "FREE");
 
-  
-  return { userIsLogin, user };
+  return { userIsLogin, user, predictions };
 }

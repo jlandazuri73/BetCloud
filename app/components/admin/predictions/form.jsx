@@ -43,8 +43,17 @@ export default function FormPredictionsAdmin({ edit }) {
   return (
     <>
       <div className="container text-white">
-        <Form method={edit ? "PATCH" : "POST"}>
+        <div className="flex justify-between items-center">
           <h2>{edit ? "Editar pronóstico" : "Nuevo pronóstico"} </h2>
+          {edit && (
+            <Form method="delete">
+              <button type="submit" className="btn btn-danger">
+                Eliminar
+              </button>
+            </Form>
+          )}
+        </div>
+        <Form method={edit ? "PATCH" : "POST"}>
           <div className="h-0.5 w-full bg-white my-3"></div>
 
           <div className="row">
@@ -58,6 +67,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   id="first"
                   name="team_local"
                   required
+                  autoComplete="off"
                   defaultValue={defaultValues?.team_local}
                 />
               </div>
@@ -72,6 +82,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   placeholder="Nombre del equipo visitante"
                   id="last"
                   name="team_visiting"
+                  autoComplete="off"
                   required
                   defaultValue={defaultValues?.team_visiting}
                 />
@@ -90,6 +101,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   id="company"
                   name="ligue"
                   required
+                  autoComplete="off"
                   defaultValue={defaultValues?.ligue}
                 />
               </div>
@@ -105,6 +117,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   placeholder="Dirección de imagen en PNG"
                   name="ligue_img"
                   required
+                  autoComplete="off"
                   defaultValue={defaultValues?.ligue_img}
                 />
               </div>
@@ -121,6 +134,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   id="email"
                   placeholder="Hora en formato: 00:00"
                   name="hour"
+                  autoComplete="off"
                   defaultValue={defaultValues?.hour}
                 />
               </div>
@@ -134,6 +148,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   id="url"
                   name="prediction"
                   placeholder="Pronóstico"
+                  autoComplete="off"
                   defaultValue={defaultValues?.prediction}
                 />
               </div>
@@ -151,6 +166,7 @@ export default function FormPredictionsAdmin({ edit }) {
                   placeholder="Cuota"
                   name="odds"
                   step={0.01}
+                  autoComplete="off"
                   required
                   defaultValue={defaultValues?.odds}
                 />
@@ -206,6 +222,7 @@ export default function FormPredictionsAdmin({ edit }) {
                     id="company"
                     name="gols_local"
                     required
+                    autoComplete="off"
                     defaultValue={defaultValues?.gols_local}
                   />
                 </div>
@@ -218,6 +235,7 @@ export default function FormPredictionsAdmin({ edit }) {
                     type="number"
                     className="form-control"
                     id="phone"
+                    autoComplete="off"
                     placeholder="Goles marcados"
                     name="gols_visiting"
                     required

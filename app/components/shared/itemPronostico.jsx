@@ -36,8 +36,7 @@ export default function ItemPronostico({ data = {}, onClick }) {
             </h4>
             <div className="px-1 text-md">
               {isInProgress ? (
-                <h2 className="text-green-400">vs</h2>
-                // <i className="fa-regular fa-clock text-yellow-300"></i>
+                <i className="fa-regular fa-clock text-yellow-300"></i>
               ) : data?.status_prediction == "WON" ? (
                 <i className="fa-solid fa-square-check text-green-300"></i>
               ) : (

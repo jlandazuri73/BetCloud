@@ -54,7 +54,7 @@ export async function getPredictions() {
         return await prisma.predictions.findMany({
             orderBy: {
                 createdAt: "desc"
-            }
+            },
         });
     } catch (error) {
         console.log("Error en la funcion getPredictions, error: " + error);
@@ -69,5 +69,16 @@ export async function getPrediction(id) {
         });
     } catch (error) {
         console.log("Error en la funcion getPrediction, error: " + error);
+    }
+}
+
+// Eliminar prediccion
+export async function deletePrediction(id) {
+    try {
+        return await prisma.predictions.delete({
+            where: { id }
+        });
+    } catch (error) {
+        console.log("Error en la funcion deletePrediction, error: " + error);
     }
 }

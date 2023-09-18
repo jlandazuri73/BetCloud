@@ -52,7 +52,7 @@ model Predictions {
   prediction        String
   odds              Float
   status_prediction String
-  type_user         String
+  type_user         String // FREE || VIP
   gols_local        Int?
   gols_visiting     Int?
 }
