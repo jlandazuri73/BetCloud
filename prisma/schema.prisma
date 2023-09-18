@@ -39,3 +39,20 @@ model Role {
   User      User[]
 }
 
+// Predicciones
+model Predictions {
+  id                String   @id @default(uuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  team_local        String
+  team_visiting     String
+  ligue             String
+  ligue_img         String   @db.Text
+  hour              String
+  prediction        String
+  odds              Float
+  status_prediction String
+  type_user         String
+  gols_local        Int?
+  gols_visiting     Int?
+}

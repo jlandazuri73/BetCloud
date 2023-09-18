@@ -12,7 +12,7 @@ export default function LayoutAdmin({ children }) {
     <>
       <div id="wrapper">
         <ul
-          className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+          className="navbar-nav bg-[#0a192f] sidebar sidebar-dark accordion"
           id="accordionSidebar"
         >
           <Link
@@ -47,14 +47,14 @@ export default function LayoutAdmin({ children }) {
           </li>
         </ul>
 
-        <div id="content-wrapper" className="d-flex flex-column">
-          <div id="content">
-            <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <div id="content-wrapper" className="d-flex flex-column bg-[#051122]">
+          <div id="content" className="bg-[#051122]">
+            <nav className="navbar bg-[#0a192f] navbar-expand navbar-light topbar mb-4 static-top shadow">
               <ul className="navbar-nav ml-auto">
                 <div className="topbar-divider d-none d-sm-block"></div>
                 <li className="nav-item dropdown no-arrow">
                   <div className="nav-link dropdown-toggle" id="userDropdown">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <span className="mr-2 d-none d-lg-inline text-white font-bold small">
                       {user?.name || ""}
                     </span>
                     <img

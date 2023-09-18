@@ -4,8 +4,12 @@ import styles from "../styles/layoutAdmin.css";
 import { requireAdminSession } from "../data/accounts.server";
 import { getUser } from "../data/user.server";
 import Preload from "../components/shared/preload";
+import stylesApp from "../styles/app.css";
 
-export const links = () => [{ rel: "stylesheet", href: styles }];
+export const links = () => [
+  { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: stylesApp },
+];
 
 export default function AdminPageLayout() {
   const navigation = useNavigation();

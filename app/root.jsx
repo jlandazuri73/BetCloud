@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import styles from "./tailwind.css";
 import stylesGlobal from "./styles/global.css";
+import ErrorComponent from "./components/shared/error";
 
 export const links = () => [
   { rel: "stylesheet", href: styles },
@@ -28,6 +29,12 @@ export const links = () => [
     href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css",
   },
 ];
+
+export function ErrorBoundary() {
+  //const error = useRouteError();
+
+  return <ErrorComponent />;
+}
 
 export const meta = () => ({
   charset: "utf-8",

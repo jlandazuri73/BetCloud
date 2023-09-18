@@ -38,7 +38,7 @@ export default function ErrorComponent() {
                 <div className="code" id="code"></div>
                 <span className="arrow">→</span>
                 <span className="user-input" id="userInput"></span>
-                <label for="Keyboard"></label>
+                <label htmlFor="Keyboard"></label>
                 <input type="text" id="Keyboard" className="keyboard" />
               </div>
             </div>

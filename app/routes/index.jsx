@@ -7,7 +7,6 @@ import { isValidVIP } from "../data/validation/accounts";
 import styles from "../styles/app.css";
 import { useNavigation } from "@remix-run/react";
 import Preload from "../components/shared/preload";
-import ErrorComponent from "../components/shared/error";
 
 export default function Index() {
   const navigation = useNavigation();
@@ -27,11 +26,6 @@ export default function Index() {
 
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
-export function ErrorBoundary() {
-  //const error = useRouteError();
-
-  return <ErrorComponent />;
-}
 
 export async function loader({ request }) {
   const userIsLogin = await isLogin(request);
@@ -44,5 +38,7 @@ export async function loader({ request }) {
       return redirect(`/validation/pay-required?type=${validVIP?.sms}`);
     }
   }
+
+  
   return { userIsLogin, user };
 }
