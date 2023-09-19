@@ -188,7 +188,7 @@ export async function requireUserSession(request) {
   });
   // Si el ID no esta en la base de datos
   if (!existingUser) {
-    throw redirect("/accounts/login/");
+    throw redirect("/");
   }
   return userId;
 }

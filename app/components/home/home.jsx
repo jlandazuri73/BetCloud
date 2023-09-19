@@ -4,7 +4,7 @@ import { Link, useLoaderData, useSearchParams } from "@remix-run/react";
 import { NAME_APP } from "../../utils/info";
 import { getLast7DaysDates, getMonthInLetters } from "../../utils/date";
 
-export default function Home({ history }) {
+export default function Home({ history, vip }) {
   const { predictions, userIsLogin } = useLoaderData();
   const dates = getLast7DaysDates();
   const moths = getMonthInLetters();
@@ -14,37 +14,40 @@ export default function Home({ history }) {
 
   return (
     <>
-      <div className="w-full h-auto mb-3 flex items-center justify-center rounded p-2 overflow-x-auto">
-        <Link
-          to={"/"}
-          className={`h-auto flex cursor-pointer hover:bg-blue-400 transition items-center justify-center rounded p-3 w-auto 
-          ${bgToday} mx-2`}
-          style={{ flexDirection: "column" }}
-        >
-          <h4 className="font-bold">Hoy</h4>
-          <p className="text-sm text-transparent">HOY</p>
-        </Link>
+      {!vip && (
+      <div className="w-full mb-3 overflow-x-auto">
+        <div id="content-ms-history" className="flex w-full  pb-3 items-center justify-start space-x-2">
+          <Link
+            to={"/"}
+            className={`flex-shrink-0 cursor-pointer hover:bg-blue-400 transition items-center justify-center rounded p-3 ${bgToday}`}
+            style={{ flexDirection: "column" }}
+          >
+            <h4 className="font-bold">Hoy</h4>
+            <p className="text-sm text-transparent">HOY</p>
+          </Link>
 
-        {dates?.map((itm, idx) => {
-          const parts = itm?.split("-");
-          const day = parts[2];
-          const month = parts[1];
-          const isActive = dateURL == itm ? true : false;
-          return (
-            <Link
-              to={isActive ? "/" : `/history?date=${itm}`}
-              key={idx}
-              className={`h-auto flex cursor-pointer hover:bg-blue-400 transition items-center justify-center rounded p-3 w-auto bg-${
-                isActive ? "blue" : "slate"
-              }-400 mx-2`}
-              style={{ flexDirection: "column" }}
-            >
-              <h4 className="font-bold">{day}</h4>
-              <p className="text-sm">{moths?.[month - 1]?.substring(0, 3)}</p>
-            </Link>
-          );
-        })}
+          {dates?.map((itm, idx) => {
+            const parts = itm?.split("-");
+            const day = parts[2];
+            const month = parts[1];
+            const isActive = dateURL == itm ? true : false;
+            return (
+              <Link
+                to={isActive ? "/" : `/history?date=${itm}`}
+                key={idx}
+                className={`flex-shrink-0 cursor-pointer hover:bg-blue-400 transition items-center justify-center rounded p-3 bg-${
+                  isActive ? "blue" : "slate"
+                }-400`}
+                style={{ flexDirection: "column" }}
+              >
+                <h4 className="font-bold">{day}</h4>
+                <p className="text-sm">{moths?.[month - 1]?.substring(0, 3)}</p>
+              </Link>
+            );
+          })}
+        </div>
       </div>
+      )}
 
       <div
         className="flex items-center justify-center"
@@ -69,8 +72,8 @@ export default function Home({ history }) {
               predicciones.
             </p>
             <Link to={"/accounts/register"}>
-              <div class="shadow-2xl mt-2 my-button mx-auto h-16 w-64 bg-blue-600 flex justify-center items-center rounded-lg cursor-pointer relative overflow-hidden">
-                <p class="text-center text-white font-semibold my-auto z-10">
+              <div className="shadow-2xl mt-2 my-button mx-auto h-16 w-64 bg-blue-600 flex justify-center items-center rounded-lg cursor-pointer relative overflow-hidden">
+                <p className="text-center text-white font-semibold my-auto z-10">
                   Obtener mas predicciones
                 </p>
               </div>

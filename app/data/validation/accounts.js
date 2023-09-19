@@ -105,6 +105,6 @@ export function isValidVIP(user) {
       const days = calculateDaysDifference(new Date(user?.datePayment)?.toISOString()?.substring(0, 10)) || null;
       if (days > 30) response = { ok: false, sms: "EXPIRED" }
     }
-  } else response = { ok: false, sms: "" };
+  } else response = { ok: true, sms: "" };
   return response;
 }

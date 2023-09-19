@@ -5,8 +5,9 @@ import Home from "../components/home/home";
 import Layout from "../components/layout/layout";
 import { loaderForHome } from "../data/home.server";
 import styles from "../styles/app.css";
+import { requireUserSession } from "../data/accounts.server";
 
-export default function HistoryPage() {
+export default function VIPPage() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
   return (
@@ -14,8 +15,8 @@ export default function HistoryPage() {
       {isSubmitting ? (
         <Preload />
       ) : (
-        <Layout>
-          <Home history />
+        <Layout vip>
+          <Home vip />
         </Layout>
       )}
     </>
@@ -25,11 +26,8 @@ export default function HistoryPage() {
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export async function loader({ request }) {
-  const searchParams = new URL(request.url).searchParams;
-  const date_URL = searchParams.get("date") || null;
-  if(!date_URL) return redirect("/");
-
-  const data = await loaderForHome(request, "FREE", date_URL);
+  const userId = await requireUserSession(request);
+  const data = await loaderForHome(request, "VIP");
   if (data?.redirect) return redirect(data?.redirect);
   else return data;
 }

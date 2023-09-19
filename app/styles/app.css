@@ -1,4 +1,5 @@
 @import url("./global.css");
+
 @font-face {
     font-display: swap;
     font-family: Signifier;
@@ -10190,6 +10191,7 @@ pre[class*=language-] {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.05);
 }
+
 .my-button::before {
     content: "";
     position: absolute;
@@ -10200,60 +10202,68 @@ pre[class*=language-] {
     transition: 0.5s ease-out;
     border-radius: 100% 100% 100% 100%;
     opacity: 0%;
-  }
-  
-  .my-button:hover:before {
+}
+
+.my-button:hover:before {
     width: 500px;
     height: 500px;
     transition: 0.5s ease-out;
     border-radius: 0;
     animation: opacity-in .7s forwards ease-out;
-  }
-  
-  .my-button:hover {
+}
+
+.my-button:hover {
     animation: bouncerino-in .5s forwards alternate ease-out;
-  }
-  .my-button:hover:p {
+}
+
+.my-button:hover:p {
     transform: scale(5);
     transition: 0.7s ease-out;
-  }
-  
-  
-  .my-button {
+}
+
+
+.my-button {
     animation: bouncerino-out .5s;
-  }
-  @keyframes bouncerino-in {
+}
+
+@keyframes bouncerino-in {
     100% {
-      transform: scale(1.075);
+        transform: scale(1.075);
     }
+
     70% {
-      transform: scale(1.08);
+        transform: scale(1.08);
     }
+
     50% {
-      transform: scale(1.075);
+        transform: scale(1.075);
     }
+
     40% {
-      transform: scale(1.09);
+        transform: scale(1.09);
     }
-  }
-  
-  @keyframes bouncerino-out {
+}
+
+@keyframes bouncerino-out {
     100% {
-      transform: scale(1.0);
+        transform: scale(1.0);
     }
+
     0% {
-      transform: scale(1.075);
+        transform: scale(1.075);
     }
-  }
-  
-  @keyframes opacity-in {
+}
+
+@keyframes opacity-in {
     from {
-      opacity: 100%;
+        opacity: 100%;
     }
+
     to {
-      opacity: 0%;
+        opacity: 0%;
     }
-  }
+}
+
 @media print {
     .intercom-lightweight-app {
         display: none;
@@ -10386,32 +10396,38 @@ div p:nth-of-type(2) {
     z-index: 9999999999999999999999999999999999999999999999999999999999999;
 }
 
-.item_prediction_open{
+.item_prediction_open {
     position: inherit;
 }
-.item_prediction_close{
+
+.item_prediction_close {
     position: inherit;
     height: 100px;
     background-color: rgb(9, 28, 58);
     border-radius: 10px;
 }
-.item_prediction_close .headerModalApp{
+
+.item_prediction_close .headerModalApp {
     border-bottom: none;
     height: 100px !important;
     max-height: 100% !important;
 }
-@media(max-width: 768px){
-    .item_prediction_close{
+
+@media(max-width: 768px) {
+    .item_prediction_close {
         width: 100%;
     }
-    .d-vs{
+
+    .d-vs {
         width: 30%;
         left: 35%;
     }
-    .title-vs{
+
+    .title-vs {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
     }
+
 }
 
 @keyframes modalFadeIn {
@@ -10503,10 +10519,11 @@ div p:nth-of-type(2) {
 
 
 
-.pronostico{
-    background-color:  #0f1b2d;
+.pronostico {
+    background-color: #0f1b2d;
 }
-.pronostico:hover{
+
+.pronostico:hover {
     transition: 250ms;
     box-shadow: 0px 10px 15px -3px #0483f365;
 }
@@ -10516,16 +10533,19 @@ div p:nth-of-type(2) {
     height: 30px;
     width: 100%;
 }
-.header-pronostico img{
+
+.header-pronostico img {
     max-width: 85%;
     max-height: 85%;
 }
-.body-pronostico{
+
+.body-pronostico {
     height: 66px;
     width: 100%;
     background-color: #4d5573;
 }
-#sm_content{
+
+#sm_content {
     top: 180px;
     bottom: 0;
     height: 100%;
@@ -10533,8 +10553,19 @@ div p:nth-of-type(2) {
     overflow-y: scroll !important;
     padding-bottom: 220px !important;
 }
-@media(min-width: 768px){
-    #sm_content{
-    width: calc(95% - 230px);
+
+@media(min-width: 768px) {
+    #sm_content {
+        width: calc(95% - 230px);
+    }
+
+    #content-ms-history {
+        justify-content: center;
+    }
+}
+
+@media(min-width: 550px) and (max-width: 767px) {
+    #content-ms-history {
+        justify-content: center;
     }
 }

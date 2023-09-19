@@ -3,7 +3,7 @@ import { getPredictions } from "./predictions.server";
 import { getUser } from "./user.server";
 import { isValidVIP } from "./validation/accounts";
 
-export async function loaderForHome(request, date = null) {
+export async function loaderForHome(request, type = "FREE", param = null) {
     try {
         const userIsLogin = await isLogin(request);
         const userId = await getUserFromSession(request);
@@ -17,8 +17,8 @@ export async function loaderForHome(request, date = null) {
                 };
             }
         }
-        let limit = userId ? 6 : 3;
-        let predictions = await getPredictions(limit, "FREE", date) || [];
+        let limit = (type == "VIP") ? 10 : userId ? 6 : 3;
+        let predictions = await getPredictions(limit, type, param) || [];
         return { userIsLogin, user, predictions };
     } catch (error) {
         console.log("Error en la funcion loaderForHome, error: " + error);
