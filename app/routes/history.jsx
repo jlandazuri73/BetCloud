@@ -1,12 +1,12 @@
+import { useNavigation } from "@remix-run/react";
 import { redirect } from "@remix-run/node";
+import Preload from "../components/shared/preload";
 import Home from "../components/home/home";
 import Layout from "../components/layout/layout";
-import styles from "../styles/app.css";
-import { useNavigation } from "@remix-run/react";
-import Preload from "../components/shared/preload";
 import { loaderForHome } from "../data/home.server";
+import styles from "../styles/app.css";
 
-export default function Index() {
+export default function HistoryPage() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state !== "idle";
   return (
@@ -15,7 +15,7 @@ export default function Index() {
         <Preload />
       ) : (
         <Layout>
-          <Home />
+          <Home history />
         </Layout>
       )}
     </>
@@ -25,7 +25,11 @@ export default function Index() {
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export async function loader({ request }) {
-  const data = await loaderForHome(request);
+  const searchParams = new URL(request.url).searchParams;
+  const date_URL = searchParams.get("date") || null;
+  if(!date_URL) return redirect("/");
+
+  const data = await loaderForHome(request, date_URL);
   if (data?.redirect) return redirect(data?.redirect);
   else return data;
 }

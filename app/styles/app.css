@@ -10525,3 +10525,16 @@ div p:nth-of-type(2) {
     width: 100%;
     background-color: #4d5573;
 }
+#sm_content{
+    top: 180px;
+    bottom: 0;
+    height: 100%;
+    width: 95%;
+    overflow-y: scroll !important;
+    padding-bottom: 220px !important;
+}
+@media(min-width: 768px){
+    #sm_content{
+    width: calc(95% - 230px);
+    }
+}

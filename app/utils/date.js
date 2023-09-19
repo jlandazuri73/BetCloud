@@ -23,3 +23,29 @@ export function calculateDaysDifference(pastDate = "") {
 
     return parseInt(differenceInDays);
 }
+
+// Fecha de los 7 dias anteriores al actual
+export function getLast7DaysDates() {
+    const resultados = [];
+    const hoy = new Date();
+
+    for (let i = 7; i >= 1; i--) {
+        const fecha = new Date();
+        fecha.setDate(hoy.getDate() - i);
+
+        const dia = fecha.getDate().toString().padStart(2, '0');
+        const mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Se suma 1 porque enero es 0
+        const anio = fecha.getFullYear().toString().slice(-4);
+
+        const fechaFormateada = `${anio}-${mes}-${dia}`;
+        resultados.unshift(fechaFormateada); // Agregar la fecha al principio del array
+    }
+
+    return resultados;
+}
+
+
+// Array de meses del año en letras
+export function getMonthInLetters() {
+    return ["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"];
+}

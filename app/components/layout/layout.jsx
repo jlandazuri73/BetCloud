@@ -179,17 +179,21 @@ export default function Layout({ children }) {
                             </div>
                             <div
                               id="content_main"
-                              className="align-center  overscroll-auto text-white font-medium flex h-full w-full flex-col justify-center self-center px-2 pb-2 md:pb-[8vh]"
+                              className="align-center relative overflow-y-scroll overscroll-auto text-white font-medium flex h-full w-full flex-col justify-center self-center px-2 pb-2 md:pb-[8vh] flex-grow"
                             >
                               <h1 className="ttapp text-4xl font-semibold text-center text-gray-200 dark:text-gray-600 ml-auto mr-auto mb-0  flex gap-2 items-center justify-center flex-grow">
                                 {NAME_APP}
                               </h1>
-                            </div>
-                            <div
-                              style={{ color: "whitesmoke", fontSize: "18px" }}
-                              className="p-4 pb-7 h-96 w-full overflow-y-scroll"
-                            >
-                              {children}
+                              <div
+                              id="sm_content"
+                                style={{
+                                  color: "whitesmoke",
+                                  fontSize: "18px",
+                                }}
+                                className="p-4 pb-7 fixed w-full overflow-y-scroll"
+                              >
+                                {children}
+                              </div>
                             </div>
                           </div>
                         </div>
