@@ -29,7 +29,7 @@ export async function loader({ request }) {
   const date_URL = searchParams.get("date") || null;
   if(!date_URL) return redirect("/");
 
-  const data = await loaderForHome(request, "FREE", date_URL);
+  const data = await loaderForHome(request, "HISTORY", date_URL);
   if (data?.redirect) return redirect(data?.redirect);
   else return data;
 }

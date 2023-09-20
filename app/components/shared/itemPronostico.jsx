@@ -17,7 +17,7 @@ export default function ItemPronostico({ data = {}, onClick }) {
                 "https://static.vecteezy.com/system/resources/previews/022/118/972/original/white-flag-free-png.png"
               }
             />
-            <p className="ml-2 text-sm">
+            <p className="p-c ml-2 text-xs">
               <strong className="uppercase">{data?.ligue || ""}</strong>
             </p>
           </div>
@@ -28,9 +28,9 @@ export default function ItemPronostico({ data = {}, onClick }) {
         </div>
         <div className="body-pronostico relative text-center rounded flex justify-between items-center w-full">
           <div className="h-full w-2/4 justify-center items-center flex">
-            <h4 className="font-bold text-white">{data?.team_local || ""}</h4>
+            <h5 className="h-c font-bold text-white">{data?.team_local || ""}</h5>
           </div>
-          <div className="flex text-lg">
+          <div className="flex text-md">
             <h4 className="px-1 text-orange-500 font-semibold">
               {!isInProgress && data?.gols_local}
             </h4>
@@ -43,20 +43,20 @@ export default function ItemPronostico({ data = {}, onClick }) {
                 <i className="fa-solid fa-circle-xmark text-red-500"></i>
               )}
             </div>
-            <h4 className="px-1 text-orange-500 font-semibold">
+            <h5 className="px-1 text-orange-500 font-semibold">
               {!isInProgress && data?.gols_visiting}
-            </h4>
+            </h5>
           </div>
           <div className="h-full w-2/4 justify-center items-center flex">
-            <h4 className="font-bold text-white">
+            <h5 className="h-c font-bold text-white">
               {data?.team_visiting || ""}
-            </h4>
+            </h5>
           </div>
           <div
-            className="w-3/5 h-8 absolute flex justify-center -bottom-4 rounded"
-            style={{ left: "20%" }}
+            className="w-4/5 h-8 absolute flex justify-center items-center -bottom-4 rounded"
+            style={{ left: "10%" }}
           >
-            <div className="w-auto px-2 text-sm h-full flex items-center justify-center text-black font-semibold bg-yellow-600 rounded">
+            <div className="kdjn p-c w-auto py-2 px-2 text-sm h-full flex items-center text-black font-semibold bg-yellow-600 rounded">
               {data?.prediction || ""}
             </div>
             <div className="w-auto text-white flex items-center justify-center rounded px-2 bg-green-500 h-full">

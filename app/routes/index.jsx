@@ -25,7 +25,7 @@ export default function Index() {
 export const links = () => [{ rel: "stylesheet", href: styles }];
 
 export async function loader({ request }) {
-  const data = await loaderForHome(request);
+  const data = await loaderForHome(request, "FREE");
   if (data?.redirect) return redirect(data?.redirect);
   else return data;
 }

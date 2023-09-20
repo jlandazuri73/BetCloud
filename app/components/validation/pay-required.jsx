@@ -80,7 +80,7 @@ export default function PayRequired() {
                 </div>
                 <div className="flex items-center px-8 mt-8"></div>
                 <div className="flex flex-col px-8 pt-4">
-                  <Link to={URL_PAY}>
+                  <Link target="_blank" to={URL_PAY}>
                   <button className="flex items-center justify-center bg-blue-600 text-sm font-medium w-full h-10 rounded text-blue-50 hover:bg-blue-700">
                     Continuar
                   </button>

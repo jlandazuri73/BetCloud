@@ -10417,17 +10417,20 @@ div p:nth-of-type(2) {
     .item_prediction_close {
         width: 100%;
     }
-
     .d-vs {
         width: 30%;
         left: 35%;
     }
-
     .title-vs {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
     }
-
+    .h-c{
+        font-size: 15.5px;
+    }
+    .p-c{
+        font-size: 14px;
+    }
 }
 
 @keyframes modalFadeIn {

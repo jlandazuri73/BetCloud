@@ -882,8 +882,8 @@ video {
   width: 5rem;
 }
 
-.w-3\/5 {
-  width: 60%;
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-6 {
@@ -1796,18 +1796,8 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .dark\:border-\[\#4E4F60\] {
-    --tw-border-opacity: 1;
-    border-color: rgb(78 79 96 / var(--tw-border-opacity));
-  }
-
   .dark\:border-white\/20 {
     border-color: rgb(255 255 255 / 0.2);
-  }
-
-  .dark\:bg-gray-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
   }
 
   .dark\:bg-gray-800 {
