@@ -6,9 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 // Usuario
@@ -47,7 +46,7 @@ model Predictions {
   team_local        String
   team_visiting     String
   ligue             String
-  ligue_img         String   @db.Text
+  ligue_img         String
   hour              String
   prediction        String
   odds              Float
